@@ -5,16 +5,14 @@ $(document).ready(function () {
   $.ajax({
   url: 'http://first-ajax-api.herokuapp.com/',
   method: 'GET',
-  data: 'text'
   });
  });
 
  $("#ajax-request-pp").on('click', function() {
 
    $.ajax({
-     url: 'http://first-ajax-api.herokuapp.com/pong',
+     url: 'http://first-ajax-api.herokuapp.com/ping',
      method: 'GET',
-     data: 'text'
    }).done(function (responseData) {
      console.log(responseData);
      $('#step3456').append(responseData);
@@ -30,6 +28,30 @@ $(document).ready(function () {
    })
 
  });
+
+ $("#ajax-request-count").on('click', function() {
+
+   $.ajax({
+     url: 'http://first-ajax-api.herokuapp.com/count',
+     method: 'GET',
+   }).done(function (responseData) {
+     console.log(responseData);
+     $('#step7').append(responseData, ' requests!');
+   });
+ });
+
+ $("#ajax-request-time").on('click', function() {
+
+   $.ajax({
+     url: 'http://first-ajax-api.herokuapp.com/time',
+     method: 'GET',
+     data: {timezone: "Europe/Sofia"}
+   }).done(function (responseData) {
+     console.log(responseData);
+     $('#step8').append(responseData);
+   });
+ });
+
 
 
 
